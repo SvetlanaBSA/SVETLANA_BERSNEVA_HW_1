@@ -1,4 +1,4 @@
-package Task4;
+package task4;
 
 import java.io.FileNotFoundException;
 public class Main {

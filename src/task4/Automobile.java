@@ -1,4 +1,4 @@
-package Task4;
+package task4;
 
 public class Automobile {
     private int id;
