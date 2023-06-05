@@ -8,10 +8,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class FileUtils {
 
-    public List<Book> readBooksFromCSV(String fileName) {
+    public static List<Book> readBooksFromCSV(String fileName) {
         List<Book> books = new ArrayList<>();
         Path pathToFile = Paths.get(fileName);
         try (BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII)) {
@@ -28,7 +29,11 @@ public class FileUtils {
         return books;
     }
 
-    private Book createBook(String[] metadata) {
+    public static String getSearchingValue() {
+        return new Scanner(System.in).nextLine();
+    }
+
+    private static Book createBook(String[] metadata) {
         Book newBook = new Book.Builder()
                 .withId(Integer.parseInt(metadata[0])) //id
                 .withTitle(metadata[1]) //title

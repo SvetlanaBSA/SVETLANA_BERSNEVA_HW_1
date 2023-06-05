@@ -28,7 +28,7 @@ public class BookList {
 
     public void outputByAuthor() {
         System.out.println("Книги какого автора Вы ищете: ");
-        String authorSearchName = getSearchingValue();
+        String authorSearchName = FileUtils.getSearchingValue();
         System.out.println("Найдено:");
         searchBooksByAuthorAndPrint(authorSearchName);
         System.out.println();
@@ -36,7 +36,7 @@ public class BookList {
 
     public void outputByBookName() {
         System.out.println("Какую книгу вы ищете (название): ");
-        String bookSearchName = getSearchingValue();
+        String bookSearchName = FileUtils.getSearchingValue();
         System.out.println("Найдено:");
         searchBooksByNameAndPrint(bookSearchName);
         System.out.println();
@@ -57,8 +57,7 @@ public class BookList {
         File inputFile = new File(Objects.requireNonNull(this.getClass().getResource("/testDataBookList.csv")).getFile());
         String filePath = inputFile.getAbsolutePath();
 
-        FileUtils fileUtils = new FileUtils();
-        books = fileUtils.readBooksFromCSV(filePath);
+        books = FileUtils.readBooksFromCSV(filePath);
     }
 
     private void printBooks(List<Book> books) {
@@ -77,12 +76,6 @@ public class BookList {
         out.append("price - ").append(book.getPrice()).append("; ");
         out.append("type - ").append(book.getType()).append(".");
         System.out.println(out);
-    }
-
-    private String getSearchingValue() {
-        Scanner scanner = new Scanner(System.in);
-        String value = scanner.nextLine();
-        return value;
     }
 
     private void searchBooksByAuthorAndPrint(String authorName) {
