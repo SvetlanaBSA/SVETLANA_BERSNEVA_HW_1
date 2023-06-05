@@ -65,10 +65,9 @@ public class Automobile {
         this.maxSpeed = maxSpeed;
     }
 
-
     @Override
     public String toString() {
-        return id + ". marka="+ marka + ", createdDate="+ createdDate + ", cost="+ cost
-                + ", litersPerOneHundredKm="+ litersPerOneHundredKm + ", maxSpeed=" + maxSpeed;
+        return id + ". marka=" + marka + ", createdDate=" + createdDate + ", cost=" + cost
+                + ", litersPerOneHundredKm=" + litersPerOneHundredKm + ", maxSpeed=" + maxSpeed;
     }
 }
