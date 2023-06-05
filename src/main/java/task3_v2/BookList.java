@@ -6,12 +6,17 @@ import java.util.*;
 public class BookList {
     private List<Book> books;
 
+    private boolean booksIsEmpty = true;
+
     public BookList() {
         this.books = new ArrayList<>();
     }
 
     public void getBookList() {
-        getBookListFromCSV();
+        if (booksIsEmpty) {
+            getBookListFromCSV();
+        }
+        booksIsEmpty = false;
     }
 
     public void showAllBooksInTheBookList() {
