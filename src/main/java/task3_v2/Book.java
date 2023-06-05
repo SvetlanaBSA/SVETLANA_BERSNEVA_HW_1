@@ -86,4 +86,9 @@ public class Book {
 
     }
 
+    @Override
+    public String toString() {
+        return id + ". title - "+ title + "; authors - " + authors + "; year - " + year + "; pagesCount - " + pagesCount
+                + "; price - " + price + "; type - " + type + ".";
+    }
 }

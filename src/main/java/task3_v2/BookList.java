@@ -20,7 +20,6 @@ public class BookList {
     }
 
     public void showAllBooksInTheBookList() {
-        getBookListFromCSV();
         System.out.println("All ABooks in the BookList");
         printBooks(books);
         System.out.println();
@@ -62,20 +61,8 @@ public class BookList {
 
     private void printBooks(List<Book> books) {
         for (Book a : books) {
-            printBook(a);
+            System.out.println(a);
         }
-    }
-
-    private void printBook(Book book) {
-        StringBuilder out = new StringBuilder();
-        out.append("id - ").append(book.getId()).append("; ");
-        out.append("title - ").append(book.getTitle()).append("; ");
-        out.append("authors - ").append(book.getAuthors()).append("; ");
-        out.append("year - ").append(book.getYear()).append("; ");
-        out.append("pagesCount - ").append(book.getPagesCount()).append("; ");
-        out.append("price - ").append(book.getPrice()).append("; ");
-        out.append("type - ").append(book.getType()).append(".");
-        System.out.println(out);
     }
 
     private void searchBooksByAuthorAndPrint(String authorName) {
@@ -84,7 +71,7 @@ public class BookList {
             String authors = a.getAuthors().toLowerCase();
             int index = authors.indexOf(authorName.toLowerCase());
             if (index>-1) {
-                printBook(a);
+                System.out.println(a);
                 countBooksByAuthor++;
             }
         }
@@ -99,7 +86,7 @@ public class BookList {
             String title = a.getTitle().toLowerCase();
             int index = title.indexOf(bookSearch.toLowerCase());
             if (index>-1) {
-                printBook(a);
+                System.out.println(a);
                 countBooksByBookName++;
             }
         }
@@ -117,7 +104,7 @@ public class BookList {
             for (Book a : books) {
                 int bookYear = a.getYear();
                 if (startDate <= bookYear && bookYear <= endDate) {
-                    printBook(a);
+                    System.out.println(a);
                     countBooksByDate++;
                 }
             }
