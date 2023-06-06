@@ -5,7 +5,6 @@ public class Main {
         //Создать таксопарк.
         //получение данных с .csv файла с тестовыми данными
         BookList bookList = new BookList();
-        bookList.getBookList();
         bookList.showAllBooksInTheBookList();
         //Вывести: a) список книг заданного автора;
         bookList.outputByAuthor();

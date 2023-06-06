@@ -10,13 +10,7 @@ public class BookList {
 
     public BookList() {
         this.books = new ArrayList<>();
-    }
-
-    public void getBookList() {
-        if (booksIsEmpty) {
-            getBookListFromCSV();
-        }
-        booksIsEmpty = false;
+        getBookListFromCSV();
     }
 
     public void showAllBooksInTheBookList() {
@@ -53,10 +47,13 @@ public class BookList {
     }
 
     private void getBookListFromCSV() {
-        File inputFile = new File(Objects.requireNonNull(this.getClass().getResource("/testDataBookList.csv")).getFile());
-        String filePath = inputFile.getAbsolutePath();
+        if (booksIsEmpty) {
+            File inputFile = new File(Objects.requireNonNull(this.getClass().getResource("/testDataBookList.csv")).getFile());
+            String filePath = inputFile.getAbsolutePath();
 
-        books = FileUtils.readBooksFromCSV(filePath);
+            books = FileUtils.readBooksFromCSV(filePath);
+            booksIsEmpty = false;
+        }
     }
 
     private void printBooks(List<Book> books) {
